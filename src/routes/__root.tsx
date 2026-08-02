@@ -11,7 +11,7 @@ import { CartBadge } from "~/components/cart-badge";
 import { SearchDropdownComponent } from "~/components/search-dropdown";
 import { Link } from "~/components/ui/link";
 import { WelcomeToast } from "~/components/welcome-toast";
-import globalsCss from "~/styles/globals.css?url";
+import globalsCss from "~/styles/globals.css?inline";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -24,7 +24,9 @@ export const Route = createRootRoute({
         content: "A performant site built with TanStack Start on Deno",
       },
     ],
-    links: [{ rel: "stylesheet", href: globalsCss }],
+    // Inlined at SSR — the port's equivalent of Next's experimental.inlineCss:
+    // no render-blocking stylesheet fetch before first paint.
+    styles: [{ children: globalsCss }],
   }),
   component: RootComponent,
   notFoundComponent: NotFound,

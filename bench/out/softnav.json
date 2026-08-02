@@ -1,0 +1,6 @@
+{
+  "protocol": "visible browser tab, MutationObserver h1-change detection, 250ms hover preload before synthetic click, category->subcategory nav, 3 samples + median, plus 1 one-shot fresh-load sample for vercel (39ms)",
+  "vercel": { "samples": [26, 25, 23], "median": 25 },
+  "railway": { "samples": [27, 15, 16], "median": 16 },
+  "denoDeploy": { "samples": [91, 64, 24], "median": 64 }
+}

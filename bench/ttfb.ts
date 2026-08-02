@@ -62,8 +62,9 @@ for (const site of activeSites()) {
     const url = site.base + page.path;
     out[site.name]![page.name] = {};
     for (const region of REGIONS) {
-      // warm the region's edge first, then measure
-      await measure(url, region);
+      // single measurement per point (anonymous rate limits are tight);
+      // per-probe cache state is recorded so the report can segment
+      // edge-hit vs origin-fetch numbers honestly.
       const result = await measure(url, region);
       out[site.name]![page.name]![region] = result;
       console.error(`${site.name} ${page.name} ${region}: done`);
