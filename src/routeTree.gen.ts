@@ -9,14 +9,47 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShopRouteImport } from './routes/_shop'
+import { Route as OrderRouteImport } from './routes/order'
+import { Route as OrderHistoryRouteImport } from './routes/order-history'
+import { Route as ScanRouteImport } from './routes/scan'
+import { Route as ShopIndexRouteImport } from './routes/_shop.index'
+import { Route as ShopCollectionRouteImport } from './routes/_shop.$collection'
 import { Route as ApiPingRouteImport } from './routes/api.ping'
 import { Route as ApiRevalidateRouteImport } from './routes/api.revalidate'
+import { Route as ApiSearchRouteImport } from './routes/api.search'
+import { Route as ShopProductsCategoryIndexRouteImport } from './routes/_shop.products.$category.index'
+import { Route as ShopProductsCategorySubcategoryIndexRouteImport } from './routes/_shop.products.$category.$subcategory.index'
+import { Route as ShopProductsCategorySubcategoryProductRouteImport } from './routes/_shop.products.$category.$subcategory.$product'
 
-const IndexRoute = IndexRouteImport.update({
+const ShopRoute = ShopRouteImport.update({
+  id: '/_shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderRoute = OrderRouteImport.update({
+  id: '/order',
+  path: '/order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderHistoryRoute = OrderHistoryRouteImport.update({
+  id: '/order-history',
+  path: '/order-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScanRoute = ScanRouteImport.update({
+  id: '/scan',
+  path: '/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopCollectionRoute = ShopCollectionRouteImport.update({
+  id: '/$collection',
+  path: '/$collection',
+  getParentRoute: () => ShopRoute,
 } as any)
 const ApiPingRoute = ApiPingRouteImport.update({
   id: '/api/ping',
@@ -28,45 +61,167 @@ const ApiRevalidateRoute = ApiRevalidateRouteImport.update({
   path: '/api/revalidate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSearchRoute = ApiSearchRouteImport.update({
+  id: '/api/search',
+  path: '/api/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopProductsCategoryIndexRoute =
+  ShopProductsCategoryIndexRouteImport.update({
+    id: '/products/$category/',
+    path: '/products/$category/',
+    getParentRoute: () => ShopRoute,
+  } as any)
+const ShopProductsCategorySubcategoryIndexRoute =
+  ShopProductsCategorySubcategoryIndexRouteImport.update({
+    id: '/products/$category/$subcategory/',
+    path: '/products/$category/$subcategory/',
+    getParentRoute: () => ShopRoute,
+  } as any)
+const ShopProductsCategorySubcategoryProductRoute =
+  ShopProductsCategorySubcategoryProductRouteImport.update({
+    id: '/products/$category/$subcategory/$product',
+    path: '/products/$category/$subcategory/$product',
+    getParentRoute: () => ShopRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof ShopIndexRoute
+  '/order': typeof OrderRoute
+  '/order-history': typeof OrderHistoryRoute
+  '/scan': typeof ScanRoute
+  '/$collection': typeof ShopCollectionRoute
   '/api/ping': typeof ApiPingRoute
   '/api/revalidate': typeof ApiRevalidateRoute
+  '/api/search': typeof ApiSearchRoute
+  '/products/$category/': typeof ShopProductsCategoryIndexRoute
+  '/products/$category/$subcategory/$product': typeof ShopProductsCategorySubcategoryProductRoute
+  '/products/$category/$subcategory/': typeof ShopProductsCategorySubcategoryIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/order': typeof OrderRoute
+  '/order-history': typeof OrderHistoryRoute
+  '/scan': typeof ScanRoute
+  '/$collection': typeof ShopCollectionRoute
   '/api/ping': typeof ApiPingRoute
   '/api/revalidate': typeof ApiRevalidateRoute
+  '/api/search': typeof ApiSearchRoute
+  '/': typeof ShopIndexRoute
+  '/products/$category': typeof ShopProductsCategoryIndexRoute
+  '/products/$category/$subcategory/$product': typeof ShopProductsCategorySubcategoryProductRoute
+  '/products/$category/$subcategory': typeof ShopProductsCategorySubcategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_shop': typeof ShopRouteWithChildren
+  '/order': typeof OrderRoute
+  '/order-history': typeof OrderHistoryRoute
+  '/scan': typeof ScanRoute
+  '/_shop/$collection': typeof ShopCollectionRoute
   '/api/ping': typeof ApiPingRoute
   '/api/revalidate': typeof ApiRevalidateRoute
+  '/api/search': typeof ApiSearchRoute
+  '/_shop/': typeof ShopIndexRoute
+  '/_shop/products/$category/': typeof ShopProductsCategoryIndexRoute
+  '/_shop/products/$category/$subcategory/$product': typeof ShopProductsCategorySubcategoryProductRoute
+  '/_shop/products/$category/$subcategory/': typeof ShopProductsCategorySubcategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/ping' | '/api/revalidate'
+  fullPaths:
+    | '/'
+    | '/order'
+    | '/order-history'
+    | '/scan'
+    | '/$collection'
+    | '/api/ping'
+    | '/api/revalidate'
+    | '/api/search'
+    | '/products/$category/'
+    | '/products/$category/$subcategory/$product'
+    | '/products/$category/$subcategory/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/ping' | '/api/revalidate'
-  id: '__root__' | '/' | '/api/ping' | '/api/revalidate'
+  to:
+    | '/order'
+    | '/order-history'
+    | '/scan'
+    | '/$collection'
+    | '/api/ping'
+    | '/api/revalidate'
+    | '/api/search'
+    | '/'
+    | '/products/$category'
+    | '/products/$category/$subcategory/$product'
+    | '/products/$category/$subcategory'
+  id:
+    | '__root__'
+    | '/_shop'
+    | '/order'
+    | '/order-history'
+    | '/scan'
+    | '/_shop/$collection'
+    | '/api/ping'
+    | '/api/revalidate'
+    | '/api/search'
+    | '/_shop/'
+    | '/_shop/products/$category/'
+    | '/_shop/products/$category/$subcategory/$product'
+    | '/_shop/products/$category/$subcategory/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  ShopRoute: typeof ShopRouteWithChildren
+  OrderRoute: typeof OrderRoute
+  OrderHistoryRoute: typeof OrderHistoryRoute
+  ScanRoute: typeof ScanRoute
   ApiPingRoute: typeof ApiPingRoute
   ApiRevalidateRoute: typeof ApiRevalidateRoute
+  ApiSearchRoute: typeof ApiSearchRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_shop': {
+      id: '/_shop'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order': {
+      id: '/order'
+      path: '/order'
+      fullPath: '/order'
+      preLoaderRoute: typeof OrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-history': {
+      id: '/order-history'
+      path: '/order-history'
+      fullPath: '/order-history'
+      preLoaderRoute: typeof OrderHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scan': {
+      id: '/scan'
+      path: '/scan'
+      fullPath: '/scan'
+      preLoaderRoute: typeof ScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_shop/': {
+      id: '/_shop/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/_shop/$collection': {
+      id: '/_shop/$collection'
+      path: '/$collection'
+      fullPath: '/$collection'
+      preLoaderRoute: typeof ShopCollectionRouteImport
+      parentRoute: typeof ShopRoute
     }
     '/api/ping': {
       id: '/api/ping'
@@ -82,13 +237,65 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiRevalidateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/search': {
+      id: '/api/search'
+      path: '/api/search'
+      fullPath: '/api/search'
+      preLoaderRoute: typeof ApiSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_shop/products/$category/': {
+      id: '/_shop/products/$category/'
+      path: '/products/$category'
+      fullPath: '/products/$category/'
+      preLoaderRoute: typeof ShopProductsCategoryIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/_shop/products/$category/$subcategory/': {
+      id: '/_shop/products/$category/$subcategory/'
+      path: '/products/$category/$subcategory'
+      fullPath: '/products/$category/$subcategory/'
+      preLoaderRoute: typeof ShopProductsCategorySubcategoryIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/_shop/products/$category/$subcategory/$product': {
+      id: '/_shop/products/$category/$subcategory/$product'
+      path: '/products/$category/$subcategory/$product'
+      fullPath: '/products/$category/$subcategory/$product'
+      preLoaderRoute: typeof ShopProductsCategorySubcategoryProductRouteImport
+      parentRoute: typeof ShopRoute
+    }
   }
 }
 
+interface ShopRouteChildren {
+  ShopCollectionRoute: typeof ShopCollectionRoute
+  ShopIndexRoute: typeof ShopIndexRoute
+  ShopProductsCategoryIndexRoute: typeof ShopProductsCategoryIndexRoute
+  ShopProductsCategorySubcategoryProductRoute: typeof ShopProductsCategorySubcategoryProductRoute
+  ShopProductsCategorySubcategoryIndexRoute: typeof ShopProductsCategorySubcategoryIndexRoute
+}
+
+const ShopRouteChildren: ShopRouteChildren = {
+  ShopCollectionRoute: ShopCollectionRoute,
+  ShopIndexRoute: ShopIndexRoute,
+  ShopProductsCategoryIndexRoute: ShopProductsCategoryIndexRoute,
+  ShopProductsCategorySubcategoryProductRoute:
+    ShopProductsCategorySubcategoryProductRoute,
+  ShopProductsCategorySubcategoryIndexRoute:
+    ShopProductsCategorySubcategoryIndexRoute,
+}
+
+const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  ShopRoute: ShopRouteWithChildren,
+  OrderRoute: OrderRoute,
+  OrderHistoryRoute: OrderHistoryRoute,
+  ScanRoute: ScanRoute,
   ApiPingRoute: ApiPingRoute,
   ApiRevalidateRoute: ApiRevalidateRoute,
+  ApiSearchRoute: ApiSearchRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
