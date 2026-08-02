@@ -1,0 +1,12 @@
+node_modules/
+.output/
+.nitro/
+.tanstack/
+dist/
+.env
+.env.*
+!.env.example
+*.local
+.DS_Store
+data/*.zip
+data/*.sql
