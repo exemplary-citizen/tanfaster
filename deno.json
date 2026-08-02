@@ -9,8 +9,7 @@
   },
   "deploy": {
     "org": "exemplary-citizen",
-    "app": "tanfaster"
+    "app": "tanfaster-app"
   }
 }
-
 

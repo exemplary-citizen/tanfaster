@@ -18,7 +18,9 @@ async function measure(url: string, region: string) {
       measurementOptions: {
         request: {
           path: new URL(url).pathname,
-          query: new URL(url).search.slice(1),
+          ...(new URL(url).search.length > 1
+            ? { query: new URL(url).search.slice(1) }
+            : {}),
         },
         protocol: "HTTPS",
       },
