@@ -25,8 +25,8 @@ jobs:
         run: |
           PORT=3123 deno run -A .output/server/index.mjs &
           sleep 3
-          h=$(curl -s -o /dev/null -D - http://localhost:3123/)
+          h=$(curl -s -o /dev/null -D - http://localhost:3123/api/ping)
           echo "$h"
-          echo "$h" | grep -qi "s-maxage=60" || (echo "missing s-maxage on /" && exit 1)
-          echo "$h" | grep -qi "deno-cache-tag: home" || (echo "missing cache tag on /" && exit 1)
-          echo "$h" | grep -qi "set-cookie" && (echo "unexpected Set-Cookie on cacheable /" && exit 1) || true
+          echo "$h" | grep -qi "s-maxage=60" || (echo "missing s-maxage on /api/ping" && exit 1)
+          echo "$h" | grep -qi "deno-cache-tag: ping" || (echo "missing cache tag on /api/ping" && exit 1)
+          echo "$h" | grep -qi "set-cookie" && (echo "unexpected Set-Cookie on cacheable route" && exit 1) || true

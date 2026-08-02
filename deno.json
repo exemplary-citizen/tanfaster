@@ -6,5 +6,11 @@
     "start": "deno run -A .output/server/index.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
+  },
+  "deploy": {
+    "org": "exemplary-citizen",
+    "app": "tanfaster"
   }
 }
+
+
