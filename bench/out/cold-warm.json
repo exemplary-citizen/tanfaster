@@ -1,0 +1,332 @@
+{
+  "vercel": {
+    "home": {
+      "first": {
+        "status": 200,
+        "firstByte": 226.2,
+        "total": 541.7,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 98.3,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "collection": {
+      "first": {
+        "status": 200,
+        "firstByte": 290.2,
+        "total": 454.8,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 21.8,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "category": {
+      "first": {
+        "status": 200,
+        "firstByte": 110.8,
+        "total": 481.7,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 19.8,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "subcategory": {
+      "first": {
+        "status": 200,
+        "firstByte": 24.7,
+        "total": 183.1,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 19.5,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "product": {
+      "first": {
+        "status": 200,
+        "firstByte": 195.5,
+        "total": 340.1,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 19.9,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "search": {
+      "first": {
+        "status": 200,
+        "firstByte": 216.9,
+        "total": 217,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 14.2,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    }
+  },
+  "railway": {
+    "home": {
+      "first": {
+        "status": 200,
+        "firstByte": 124.6,
+        "total": 159.4,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 6.9,
+      "warmCacheStates": [
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE"
+      ]
+    },
+    "collection": {
+      "first": {
+        "status": 200,
+        "firstByte": 46.2,
+        "total": 49.8,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 8.9,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT"
+      ]
+    },
+    "category": {
+      "first": {
+        "status": 200,
+        "firstByte": 99.7,
+        "total": 192,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 8.2,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "subcategory": {
+      "first": {
+        "status": 200,
+        "firstByte": 39.5,
+        "total": 46.4,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 6.5,
+      "warmCacheStates": [
+        "HIT",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "product": {
+      "first": {
+        "status": 200,
+        "firstByte": 14.5,
+        "total": 21.2,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 6.3,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE"
+      ]
+    },
+    "search": {
+      "first": {
+        "status": 200,
+        "firstByte": 46.3,
+        "total": 46.3,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 6.7,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    }
+  },
+  "denoDeploy": {
+    "home": {
+      "first": {
+        "status": 200,
+        "firstByte": 1414.8,
+        "total": 1580.8,
+        "cache": "deno; fwd=uri-miss; stored"
+      },
+      "warmMedianTtfb": 58.9,
+      "warmCacheStates": [
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit"
+      ]
+    },
+    "collection": {
+      "first": {
+        "status": 200,
+        "firstByte": 248.6,
+        "total": 249.3,
+        "cache": "deno; fwd=uri-miss; stored"
+      },
+      "warmMedianTtfb": 66.9,
+      "warmCacheStates": [
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit"
+      ]
+    },
+    "category": {
+      "first": {
+        "status": 200,
+        "firstByte": 333.6,
+        "total": 467.6,
+        "cache": "deno; fwd=uri-miss; stored"
+      },
+      "warmMedianTtfb": 62.3,
+      "warmCacheStates": [
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit"
+      ]
+    },
+    "subcategory": {
+      "first": {
+        "status": 200,
+        "firstByte": 332.7,
+        "total": 333.4,
+        "cache": "deno; fwd=uri-miss; stored"
+      },
+      "warmMedianTtfb": 116.6,
+      "warmCacheStates": [
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit"
+      ]
+    },
+    "product": {
+      "first": {
+        "status": 200,
+        "firstByte": 256.1,
+        "total": 259.1,
+        "cache": "deno; fwd=uri-miss; stored"
+      },
+      "warmMedianTtfb": 60.6,
+      "warmCacheStates": [
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit"
+      ]
+    },
+    "search": {
+      "first": {
+        "status": 200,
+        "firstByte": 233.5,
+        "total": 234.5,
+        "cache": "deno; fwd=uri-miss; stored"
+      },
+      "warmMedianTtfb": 59.5,
+      "warmCacheStates": [
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit",
+        "deno; hit"
+      ]
+    }
+  }
+}

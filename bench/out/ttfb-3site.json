@@ -1,0 +1,161 @@
+{
+  "vercel": {
+    "home": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    },
+    "category": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    },
+    "product": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    }
+  },
+  "railway": {
+    "home": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    },
+    "category": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    },
+    "product": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    }
+  },
+  "denoDeploy": {
+    "home": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    },
+    "category": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    },
+    "product": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    }
+  }
+}

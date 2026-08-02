@@ -54,11 +54,16 @@ async function measure(url: string, region: string) {
   return { error: "timeout" };
 }
 
+const pageFilter = (Deno.env.get("BENCH_PAGES") ?? "").split(",").filter(
+  Boolean,
+);
+
 const out: Record<string, Record<string, Record<string, unknown>>> = {};
 for (const site of activeSites()) {
   out[site.name] = {};
   for (const page of PAGES) {
     if (page.name === "search") continue;
+    if (pageFilter.length > 0 && !pageFilter.includes(page.name)) continue;
     const url = site.base + page.path;
     out[site.name]![page.name] = {};
     for (const region of REGIONS) {

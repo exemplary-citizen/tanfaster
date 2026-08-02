@@ -1,0 +1,44 @@
+{
+ "vercel:home": {
+  "score": 89.0,
+  "lcp": 3320.417,
+  "fcp": 1362.417,
+  "tbt": 78,
+  "cls": 0.0
+ },
+ "railway:home": {
+  "score": 94.0,
+  "lcp": 2783.922,
+  "fcp": 2072.957,
+  "tbt": 10,
+  "cls": 0.0
+ },
+ "denoDeploy:home": {
+  "score": 90.0,
+  "lcp": 3224.546,
+  "fcp": 2367.455,
+  "tbt": 39,
+  "cls": 0.0
+ },
+ "vercel:product": {
+  "score": 96.0,
+  "lcp": 2643.104,
+  "fcp": 998.987,
+  "tbt": 90,
+  "cls": 0.0
+ },
+ "railway:product": {
+  "score": 91.0,
+  "lcp": 3166.177,
+  "fcp": 2262.919,
+  "tbt": 4,
+  "cls": 0.0
+ },
+ "denoDeploy:product": {
+  "score": 72.0,
+  "lcp": 4989.499,
+  "fcp": 4059.138,
+  "tbt": 6,
+  "cls": 0.002
+ }
+}

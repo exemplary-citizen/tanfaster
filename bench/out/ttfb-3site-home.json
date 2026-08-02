@@ -1,0 +1,194 @@
+{
+  "vercel": {
+    "home": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 25,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 35,
+          "cache": "HIT"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 16,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 21,
+          "cache": "HIT"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 69,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 24,
+          "cache": "HIT"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 30,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 22,
+          "cache": "HIT"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 33,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 22,
+          "cache": "HIT"
+        }
+      ]
+    }
+  },
+  "railway": {
+    "home": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 26,
+          "cache": "STALE"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": null,
+          "cache": null
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 248,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 229,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 212,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 202,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 301,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 301,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 202,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 351,
+          "cache": "DYNAMIC"
+        }
+      ]
+    }
+  },
+  "denoDeploy": {
+    "home": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 1557,
+          "cache": "deno; fwd=uri-miss; stored"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 1244,
+          "cache": "deno; fwd=uri-miss; stored"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 409,
+          "cache": "deno; hit"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 171,
+          "cache": "deno; hit"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 219,
+          "cache": "deno; hit"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 265,
+          "cache": "deno; hit"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 207,
+          "cache": "deno; hit"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 203,
+          "cache": "deno; hit"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 199,
+          "cache": "deno; hit"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 193,
+          "cache": "deno; hit"
+        }
+      ]
+    }
+  }
+}
