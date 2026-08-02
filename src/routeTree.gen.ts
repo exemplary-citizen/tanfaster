@@ -18,6 +18,7 @@ import { Route as ShopCollectionRouteImport } from './routes/_shop.$collection'
 import { Route as ApiPingRouteImport } from './routes/api.ping'
 import { Route as ApiRevalidateRouteImport } from './routes/api.revalidate'
 import { Route as ApiSearchRouteImport } from './routes/api.search'
+import { Route as ImgSplatRouteImport } from './routes/img.$'
 import { Route as ApiOgSplatRouteImport } from './routes/api.og.$'
 import { Route as ShopProductsCategoryIndexRouteImport } from './routes/_shop.products.$category.index'
 import { Route as ShopProductsCategorySubcategoryIndexRouteImport } from './routes/_shop.products.$category.$subcategory.index'
@@ -67,6 +68,11 @@ const ApiSearchRoute = ApiSearchRouteImport.update({
   path: '/api/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImgSplatRoute = ImgSplatRouteImport.update({
+  id: '/img/$',
+  path: '/img/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOgSplatRoute = ApiOgSplatRouteImport.update({
   id: '/api/og/$',
   path: '/api/og/$',
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/api/ping': typeof ApiPingRoute
   '/api/revalidate': typeof ApiRevalidateRoute
   '/api/search': typeof ApiSearchRoute
+  '/img/$': typeof ImgSplatRoute
   '/api/og/$': typeof ApiOgSplatRoute
   '/products/$category/': typeof ShopProductsCategoryIndexRoute
   '/products/$category/$subcategory/$product': typeof ShopProductsCategorySubcategoryProductRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/api/ping': typeof ApiPingRoute
   '/api/revalidate': typeof ApiRevalidateRoute
   '/api/search': typeof ApiSearchRoute
+  '/img/$': typeof ImgSplatRoute
   '/': typeof ShopIndexRoute
   '/api/og/$': typeof ApiOgSplatRoute
   '/products/$category': typeof ShopProductsCategoryIndexRoute
@@ -129,6 +137,7 @@ export interface FileRoutesById {
   '/api/ping': typeof ApiPingRoute
   '/api/revalidate': typeof ApiRevalidateRoute
   '/api/search': typeof ApiSearchRoute
+  '/img/$': typeof ImgSplatRoute
   '/_shop/': typeof ShopIndexRoute
   '/api/og/$': typeof ApiOgSplatRoute
   '/_shop/products/$category/': typeof ShopProductsCategoryIndexRoute
@@ -146,6 +155,7 @@ export interface FileRouteTypes {
     | '/api/ping'
     | '/api/revalidate'
     | '/api/search'
+    | '/img/$'
     | '/api/og/$'
     | '/products/$category/'
     | '/products/$category/$subcategory/$product'
@@ -159,6 +169,7 @@ export interface FileRouteTypes {
     | '/api/ping'
     | '/api/revalidate'
     | '/api/search'
+    | '/img/$'
     | '/'
     | '/api/og/$'
     | '/products/$category'
@@ -174,6 +185,7 @@ export interface FileRouteTypes {
     | '/api/ping'
     | '/api/revalidate'
     | '/api/search'
+    | '/img/$'
     | '/_shop/'
     | '/api/og/$'
     | '/_shop/products/$category/'
@@ -189,6 +201,7 @@ export interface RootRouteChildren {
   ApiPingRoute: typeof ApiPingRoute
   ApiRevalidateRoute: typeof ApiRevalidateRoute
   ApiSearchRoute: typeof ApiSearchRoute
+  ImgSplatRoute: typeof ImgSplatRoute
   ApiOgSplatRoute: typeof ApiOgSplatRoute
 }
 
@@ -257,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiSearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/img/$': {
+      id: '/img/$'
+      path: '/img/$'
+      fullPath: '/img/$'
+      preLoaderRoute: typeof ImgSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/og/$': {
       id: '/api/og/$'
       path: '/api/og/$'
@@ -316,6 +336,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPingRoute: ApiPingRoute,
   ApiRevalidateRoute: ApiRevalidateRoute,
   ApiSearchRoute: ApiSearchRoute,
+  ImgSplatRoute: ImgSplatRoute,
   ApiOgSplatRoute: ApiOgSplatRoute,
 }
 export const routeTree = rootRouteImport
