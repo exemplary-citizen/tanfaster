@@ -1,0 +1,750 @@
+{
+  "vercel": {
+    "home": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 31,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 23,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 73,
+          "cache": "HIT"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 62,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 18,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 16,
+          "cache": "HIT"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 23,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 61,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 19,
+          "cache": "HIT"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 18,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 20,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 58,
+          "cache": "HIT"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 16,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 44,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 17,
+          "cache": "HIT"
+        }
+      ]
+    },
+    "collection": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 26,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": null,
+          "cache": null
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 19,
+          "cache": "HIT"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 174,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 22,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 12,
+          "cache": "HIT"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 13,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 15,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 16,
+          "cache": "HIT"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 25,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 56,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 12,
+          "cache": "HIT"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 12,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 10,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 68,
+          "cache": "HIT"
+        }
+      ]
+    },
+    "category": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 38,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 60,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 51,
+          "cache": "HIT"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 12,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 15,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 172,
+          "cache": "HIT"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 15,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 20,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 12,
+          "cache": "HIT"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 15,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 13,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 15,
+          "cache": "HIT"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 22,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 32,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 21,
+          "cache": "HIT"
+        }
+      ]
+    },
+    "subcategory": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 115,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 25,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 47,
+          "cache": "HIT"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 20,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 12,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 20,
+          "cache": "HIT"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 21,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 18,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 29,
+          "cache": "HIT"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 13,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 12,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 26,
+          "cache": "HIT"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 17,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 25,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 24,
+          "cache": "HIT"
+        }
+      ]
+    },
+    "product": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 28,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 42,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 21,
+          "cache": "HIT"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 13,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 17,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 18,
+          "cache": "HIT"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 17,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 18,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 13,
+          "cache": "HIT"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 20,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 43,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 17,
+          "cache": "HIT"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 15,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 27,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 18,
+          "cache": "HIT"
+        }
+      ]
+    }
+  },
+  "railway": {
+    "home": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 21,
+          "cache": "STALE"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 30,
+          "cache": "STALE"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": null,
+          "cache": null
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 389,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 211,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 214,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 199,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 176,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 167,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 272,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 280,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 254,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 191,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 354,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 197,
+          "cache": "DYNAMIC"
+        }
+      ]
+    },
+    "collection": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 21,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 23,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 20,
+          "cache": "STALE"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 201,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 218,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 204,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 182,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 165,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 159,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 333,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 351,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 284,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 189,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 334,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 178,
+          "cache": "DYNAMIC"
+        }
+      ]
+    },
+    "category": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 22,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 31,
+          "cache": "HIT"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 20,
+          "cache": "STALE"
+        }
+      ],
+      "Sao Paulo": [
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 202,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 201,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sao Paulo,BR",
+          "firstByte": 204,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Frankfurt": [
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 185,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 165,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Frankfurt,DE",
+          "firstByte": 164,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Singapore": [
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 270,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 243,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Singapore,SG",
+          "firstByte": 267,
+          "cache": "DYNAMIC"
+        }
+      ],
+      "Sydney": [
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 190,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 456,
+          "cache": "DYNAMIC"
+        },
+        {
+          "probe": "Sydney,AU",
+          "firstByte": 339,
+          "cache": "DYNAMIC"
+        }
+      ]
+    },
+    "subcategory": {
+      "Seattle": [
+        {
+          "probe": "Seattle,US",
+          "firstByte": 22,
+          "cache": "STALE"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 22,
+          "cache": "STALE"
+        },
+        {
+          "probe": "Seattle,US",
+          "firstByte": 22,
+          "cache": "STALE"
+        }
+      ],
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    },
+    "product": {
+      "Seattle": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sao Paulo": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Frankfurt": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Singapore": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      },
+      "Sydney": {
+        "error": "429 {\n  \"error\": {\n    \"type\": \"rate_limit_exceeded\",\n    \"message\": \"This measurement exceeds the remaining hourly rate limit for your IP address.\"\n  },\n  \"links\": {\n    \"documentation\": \"https://globalping.io/docs/api.globalping.io#post-/v1/measurements\"\n  }\n}"
+      }
+    }
+  }
+}

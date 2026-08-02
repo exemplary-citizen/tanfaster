@@ -2,7 +2,7 @@
   "nodeModulesDir": "auto",
   "tasks": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && deno run -A scripts/patch-builtins.ts",
     "start": "deno run -A .output/server/index.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
@@ -12,4 +12,6 @@
     "app": "tanfaster-app"
   }
 }
+
+
 
