@@ -21,7 +21,7 @@ export const Route = createFileRoute("/_shop/products/$category/")({
     }
     return { category, countRes };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const category = loaderData?.category;
     if (!category) return { meta: [] };
     const examples = category.subcollections
@@ -37,6 +37,7 @@ export const Route = createFileRoute("/_shop/products/$category/")({
         { title: `${category.name} | TanFaster` },
         { property: "og:title", content: category.name },
         { property: "og:description", content: description },
+        { property: "og:image", content: `/api/og/${params.category}` },
       ],
     };
   },

@@ -23,7 +23,7 @@ export const Route = createFileRoute(
     }
     return { products, subcategory, countRes };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [] };
     const { subcategory, countRes } = loaderData;
     const count = countRes[0]?.count;
@@ -37,6 +37,10 @@ export const Route = createFileRoute(
         ...(description
           ? [{ property: "og:description", content: description }]
           : []),
+        {
+          property: "og:image",
+          content: `/api/og/${params.category}/${params.subcategory}`,
+        },
       ],
     };
   },

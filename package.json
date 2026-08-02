@@ -11,6 +11,7 @@
     "@radix-ui/react-popover": "^1.1.23",
     "@radix-ui/react-scroll-area": "^1.2.18",
     "@radix-ui/react-slot": "^1.3.3",
+    "@resvg/resvg-wasm": "^2.6.2",
     "@tanstack/react-router": "1.170.18",
     "@tanstack/react-start": "1.168.34",
     "bcryptjs": "^3.0.3",
@@ -23,6 +24,7 @@
     "postgres": "^3.4.7",
     "react": "19.1.1",
     "react-dom": "19.1.1",
+    "satori": "^0.29.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
     "zod": "^4.0.5"

@@ -18,6 +18,7 @@ import { Route as ShopCollectionRouteImport } from './routes/_shop.$collection'
 import { Route as ApiPingRouteImport } from './routes/api.ping'
 import { Route as ApiRevalidateRouteImport } from './routes/api.revalidate'
 import { Route as ApiSearchRouteImport } from './routes/api.search'
+import { Route as ApiOgSplatRouteImport } from './routes/api.og.$'
 import { Route as ShopProductsCategoryIndexRouteImport } from './routes/_shop.products.$category.index'
 import { Route as ShopProductsCategorySubcategoryIndexRouteImport } from './routes/_shop.products.$category.$subcategory.index'
 import { Route as ShopProductsCategorySubcategoryProductRouteImport } from './routes/_shop.products.$category.$subcategory.$product'
@@ -66,6 +67,11 @@ const ApiSearchRoute = ApiSearchRouteImport.update({
   path: '/api/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOgSplatRoute = ApiOgSplatRouteImport.update({
+  id: '/api/og/$',
+  path: '/api/og/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShopProductsCategoryIndexRoute =
   ShopProductsCategoryIndexRouteImport.update({
     id: '/products/$category/',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/api/ping': typeof ApiPingRoute
   '/api/revalidate': typeof ApiRevalidateRoute
   '/api/search': typeof ApiSearchRoute
+  '/api/og/$': typeof ApiOgSplatRoute
   '/products/$category/': typeof ShopProductsCategoryIndexRoute
   '/products/$category/$subcategory/$product': typeof ShopProductsCategorySubcategoryProductRoute
   '/products/$category/$subcategory/': typeof ShopProductsCategorySubcategoryIndexRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/api/revalidate': typeof ApiRevalidateRoute
   '/api/search': typeof ApiSearchRoute
   '/': typeof ShopIndexRoute
+  '/api/og/$': typeof ApiOgSplatRoute
   '/products/$category': typeof ShopProductsCategoryIndexRoute
   '/products/$category/$subcategory/$product': typeof ShopProductsCategorySubcategoryProductRoute
   '/products/$category/$subcategory': typeof ShopProductsCategorySubcategoryIndexRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/api/revalidate': typeof ApiRevalidateRoute
   '/api/search': typeof ApiSearchRoute
   '/_shop/': typeof ShopIndexRoute
+  '/api/og/$': typeof ApiOgSplatRoute
   '/_shop/products/$category/': typeof ShopProductsCategoryIndexRoute
   '/_shop/products/$category/$subcategory/$product': typeof ShopProductsCategorySubcategoryProductRoute
   '/_shop/products/$category/$subcategory/': typeof ShopProductsCategorySubcategoryIndexRoute
@@ -137,6 +146,7 @@ export interface FileRouteTypes {
     | '/api/ping'
     | '/api/revalidate'
     | '/api/search'
+    | '/api/og/$'
     | '/products/$category/'
     | '/products/$category/$subcategory/$product'
     | '/products/$category/$subcategory/'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/api/revalidate'
     | '/api/search'
     | '/'
+    | '/api/og/$'
     | '/products/$category'
     | '/products/$category/$subcategory/$product'
     | '/products/$category/$subcategory'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/api/revalidate'
     | '/api/search'
     | '/_shop/'
+    | '/api/og/$'
     | '/_shop/products/$category/'
     | '/_shop/products/$category/$subcategory/$product'
     | '/_shop/products/$category/$subcategory/'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   ApiPingRoute: typeof ApiPingRoute
   ApiRevalidateRoute: typeof ApiRevalidateRoute
   ApiSearchRoute: typeof ApiSearchRoute
+  ApiOgSplatRoute: typeof ApiOgSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -244,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiSearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/og/$': {
+      id: '/api/og/$'
+      path: '/api/og/$'
+      fullPath: '/api/og/$'
+      preLoaderRoute: typeof ApiOgSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_shop/products/$category/': {
       id: '/_shop/products/$category/'
       path: '/products/$category'
@@ -296,6 +316,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPingRoute: ApiPingRoute,
   ApiRevalidateRoute: ApiRevalidateRoute,
   ApiSearchRoute: ApiSearchRoute,
+  ApiOgSplatRoute: ApiOgSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

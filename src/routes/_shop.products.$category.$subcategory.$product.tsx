@@ -24,7 +24,7 @@ export const Route = createFileRoute(
     }
     return { product, relatedProducts };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const product = loaderData?.product;
     if (!product) return { meta: [] };
     return {
@@ -32,6 +32,10 @@ export const Route = createFileRoute(
         { title: `${product.name} | TanFaster` },
         { property: "og:title", content: product.name },
         { property: "og:description", content: product.description },
+        {
+          property: "og:image",
+          content: `/api/og/${params.category}/${params.subcategory}/${params.product}`,
+        },
       ],
     };
   },
