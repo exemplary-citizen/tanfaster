@@ -1,0 +1,222 @@
+{
+  "vercel": {
+    "home": {
+      "first": {
+        "status": 200,
+        "firstByte": 178.7,
+        "total": 370.5,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 24.5,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "collection": {
+      "first": {
+        "status": 200,
+        "firstByte": 46.8,
+        "total": 211.7,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 23.8,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "category": {
+      "first": {
+        "status": 200,
+        "firstByte": 123.1,
+        "total": 273.4,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 18.2,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "subcategory": {
+      "first": {
+        "status": 200,
+        "firstByte": 16.7,
+        "total": 177,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 17.2,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "product": {
+      "first": {
+        "status": 200,
+        "firstByte": 17.3,
+        "total": 235,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 20.3,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "search": {
+      "first": {
+        "status": 200,
+        "firstByte": 16.2,
+        "total": 16.4,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 18.8,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    }
+  },
+  "railway": {
+    "home": {
+      "first": {
+        "status": 200,
+        "firstByte": 32,
+        "total": 44.5,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 8.9,
+      "warmCacheStates": [
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "collection": {
+      "first": {
+        "status": 200,
+        "firstByte": 7,
+        "total": 9.2,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 7.6,
+      "warmCacheStates": [
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT"
+      ]
+    },
+    "category": {
+      "first": {
+        "status": 200,
+        "firstByte": 75.1,
+        "total": 78.8,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 7.2,
+      "warmCacheStates": [
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "subcategory": {
+      "first": {
+        "status": 200,
+        "firstByte": 9.3,
+        "total": 10.3,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 7.7,
+      "warmCacheStates": [
+        "STALE",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "product": {
+      "first": {
+        "status": 200,
+        "firstByte": 6.4,
+        "total": 8.8,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 8,
+      "warmCacheStates": [
+        "STALE",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "search": {
+      "first": {
+        "status": 200,
+        "firstByte": 12,
+        "total": 12.1,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 6.7,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    }
+  }
+}
