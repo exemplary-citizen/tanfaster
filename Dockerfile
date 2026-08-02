@@ -3,6 +3,8 @@ WORKDIR /app
 COPY package.json deno.json deno.lock ./
 RUN deno install --allow-scripts
 COPY . .
+ARG VITE_IMAGE_CDN_BASE
+ENV VITE_IMAGE_CDN_BASE=$VITE_IMAGE_CDN_BASE
 ENV NITRO_PRESET=deno_server
 RUN deno task build
 
