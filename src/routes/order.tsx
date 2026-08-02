@@ -1,10 +1,12 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { X } from "lucide-react";
-import { useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { notifyCartChanged } from "~/components/cart-badge";
+import { LoginForm } from "~/components/login-form";
 import { Image } from "~/components/ui/image";
 import { Link } from "~/components/ui/link";
+import { getUserFn } from "~/lib/functions/auth";
 import { getDetailedCartFn, removeFromCartFn } from "~/lib/functions/cart";
 
 export const Route = createFileRoute("/order")({
@@ -16,6 +18,38 @@ export const Route = createFileRoute("/order")({
 });
 
 type CartItemData = Awaited<ReturnType<typeof getDetailedCartFn>>[number];
+
+function PlaceOrderAuth() {
+  const getUser = useServerFn(getUserFn);
+  const [user, setUser] = useState<
+    { id: number; username: string } | null | undefined
+  >(undefined);
+
+  useEffect(() => {
+    let cancelled = false;
+    void getUser()
+      .then((u) => {
+        if (!cancelled) setUser(u);
+      })
+      .catch(() => {
+        if (!cancelled) setUser(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (user !== null) {
+    return null;
+  }
+  return (
+    <>
+      <p className="font-semibold text-accent1">Log in to place an order</p>
+      <LoginForm />
+    </>
+  );
+}
 
 function OrderPage() {
   const cart = Route.useLoaderData();
@@ -46,6 +80,7 @@ function OrderPage() {
                 Applicable shipping and tax will be added.
               </p>
             </div>
+            <PlaceOrderAuth />
           </div>
         </div>
       </div>
