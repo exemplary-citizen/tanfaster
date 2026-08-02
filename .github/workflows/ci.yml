@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.9.4
+      - name: Install dependencies
+        run: deno install --frozen --allow-scripts
+      - name: Typecheck
+        run: deno task typecheck
+      - name: Unit tests
+        run: deno task test
+      - name: Build (nitro-nightly drift tripwire)
+        run: deno task build
+      - name: Cache-header smoke test
+        run: |
+          PORT=3123 deno run -A .output/server/index.mjs &
+          sleep 3
+          h=$(curl -s -o /dev/null -D - http://localhost:3123/)
+          echo "$h"
+          echo "$h" | grep -qi "s-maxage=60" || (echo "missing s-maxage on /" && exit 1)
+          echo "$h" | grep -qi "deno-cache-tag: home" || (echo "missing cache tag on /" && exit 1)
+          echo "$h" | grep -qi "set-cookie" && (echo "unexpected Set-Cookie on cacheable /" && exit 1) || true
