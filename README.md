@@ -36,6 +36,15 @@ paired same-session control, Vercel scored 95 with LCP 2792ms: **a tie on
 score and a ~390ms LCP win**. FCP remains Vercel's — their first streamed
 chunk is tiny, ours carries the full inline CSS.
 
+**Deferred-shell rollout + sidebar payload diet** (all grid pages stream;
+the layout's sidebar loads 19 name+slug rows instead of the full ~100KB
+nested collections tree, which used to sit *before* visible content on every
+page). Final paired round: **home 95 vs 90 (LCP 2405 vs 3129)**, product
+95 vs 98 (LCP 2440 vs 2209) — run-to-run LCP noise now swings the product
+comparison both ways. Product page wire weight: **45KB → 14.8KB gz**,
+smaller than the original's 19KB. Subcategory HTML: 217KB → 79KB raw, first
+visible content moved from byte ~154K to ~40K.
+
 ### Client-side navigation (hover-preloaded click → content, real browser, median)
 
 | | Vercel | TanFaster |
