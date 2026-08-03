@@ -26,8 +26,15 @@ Raw data in `bench/out/`. Same 1M-product corpus on both sites.
 |---|---|---:|---:|---:|---:|---:|
 | Vercel original | home | 89 | 3320 | **1362** | 78 | 0 |
 | **TanFaster** | home | **94** | **2784** | 2073 | **10** | 0 |
-| Vercel original | product | **96** | **2643** | **999** | 90 | 0 |
+| Vercel original | product | **96** | 2643 | **999** | 90 | 0 |
 | TanFaster | product | 91 | 3166 | 2263 | **4** | 0 |
+| TanFaster (streamed shell)¹ | product | 95 | **2405** | 2292 | **10** | 0 |
+
+¹ after deferring the related-products grid behind `defer()`/`Await`
+(streaming SSR flushes the shell at ~TTFB — the PPR-shell equivalent). In the
+paired same-session control, Vercel scored 95 with LCP 2792ms: **a tie on
+score and a ~390ms LCP win**. FCP remains Vercel's — their first streamed
+chunk is tiny, ours carries the full inline CSS.
 
 ### Client-side navigation (hover-preloaded click → content, real browser, median)
 
@@ -60,17 +67,20 @@ This is CDN coverage, not app speed — the app renders in well under 200ms.
 | criterion | result |
 |---|---|
 | warm TTFB ≤ original+10%, ≥4/5 regions | ✅ US · ❌ globally (Railway CDN's PoP coverage) |
-| lab LCP ≤ original+100ms | ✅ home (−536ms) · ❌ product (+523ms) |
+| lab LCP ≤ original+100ms | ✅ home (−536ms) · ✅ product after streamed shell (−387ms vs paired control) |
 | TBT ≤ original+50ms | ✅✅ 4–10ms vs 78–90ms |
 | CLS ≤ 0.02 | ✅ |
 | soft-nav ≤ original+10% | ✅ −36% |
 | initial JS ≤ original+20% | ✅ −30% |
 
-What can't be replicated without framework support: **PPR's streamed static
-shell** (their FCP advantage — our monolithic SSR HTML must fully arrive
-before paint) and **Vercel's always-warm global edge**. A TanStack
-`Await`-based deferred-loader shell would close most of the FCP gap and is
-the natural next experiment.
+The streamed-shell experiment (product page) shows TanStack's
+`defer()`/`Await` recovers most of PPR's benefit: the shell flushes at ~TTFB
+and Railway's CDN passes chunks through even on cold requests (verified:
+shell ~80ms, grid +30ms on uncached pages). What remains structurally
+Vercel's: the **FCP head start** (their first chunk is a few KB of head;
+ours carries the inlined CSS) and the **always-warm global edge**. Rolling
+the deferred shell out to the category/subcategory grids is the remaining
+easy win.
 
 Running cost: ~$20–25/mo (Railway web + imgproxy + Postgres) vs the
 original's documented ~$513/1M page views.
@@ -124,6 +134,10 @@ retiring it:
   256px@2x q80 hero; immutable 1-year caching on the site's own CDN entry.
   `scripts/warm-images.ts` pre-warms the category/subcategory grid variants
 - **OG images**: satori + resvg-wasm server route with static PNG fallback
+- **Streamed shell**: product page defers the related-products grid
+  (`defer()` + `<Await>`) so streaming SSR flushes head + above-fold content
+  at ~TTFB; bots get fully-buffered HTML (the stream handler's `isbot` path),
+  and the CDN stores the complete document, so warm hits are unaffected
 
 ## Development
 
