@@ -5,6 +5,7 @@ import {
   getCategoryProductCount,
   getCollectionDetails,
   getCollections,
+  getCollectionsLight,
   getProductCount,
   getProductDetails,
   getProductsForSubcategory,
@@ -20,6 +21,10 @@ const slug = z.string().min(1);
 
 export const getCollectionsFn = createServerFn({ method: "GET" }).handler(() =>
   getCollections(),
+);
+
+export const getCollectionsLightFn = createServerFn({ method: "GET" }).handler(
+  () => getCollectionsLight(),
 );
 
 export const getCollectionDetailsFn = createServerFn({ method: "GET" })

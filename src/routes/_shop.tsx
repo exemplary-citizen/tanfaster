@@ -1,12 +1,13 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { Link } from "~/components/ui/link";
-import { getCollectionsFn } from "~/lib/functions/data";
+import { getCollectionsLightFn } from "~/lib/functions/data";
 
 // Port of NextFaster's (category-sidebar)/layout.tsx. No cache headers here —
-// each leaf route owns its own Cache-Control / Deno-Cache-Tag.
+// each leaf route owns its own Cache-Control / Deno-Cache-Tag. Uses the
+// light collections query — this loader data ships on every shop page.
 
 export const Route = createFileRoute("/_shop")({
-  loader: () => getCollectionsFn(),
+  loader: () => getCollectionsLightFn(),
   component: ShopLayout,
 });
 

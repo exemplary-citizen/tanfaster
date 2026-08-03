@@ -1,20 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Await, createFileRoute, defer } from "@tanstack/react-router";
 import { Image } from "~/components/ui/image";
 import { Link } from "~/components/ui/link";
 import { CACHE_HEADERS } from "~/lib/cache";
 import { getCollectionsFn, getProductCountFn } from "~/lib/functions/data";
 
 // Port of NextFaster's (category-sidebar)/page.tsx — the home page's full
-// collections/categories grid.
+// collections/categories grid. Both queries are deferred: the shell
+// (header + sidebar) streams at ~TTFB and the grid follows, so the ~100KB
+// nested collections payload never delays first paint.
 
 export const Route = createFileRoute("/_shop/")({
-  loader: async () => {
-    const [collections, productCount] = await Promise.all([
-      getCollectionsFn(),
-      getProductCountFn(),
-    ]);
-    return { collections, productCount };
-  },
+  loader: () => ({
+    collectionsPromise: defer(getCollectionsFn()),
+    countPromise: defer(getProductCountFn()),
+  }),
   headers: () => ({
     ...CACHE_HEADERS.home,
     "deno-cache-tag": "home,collections,products",
@@ -23,15 +22,39 @@ export const Route = createFileRoute("/_shop/")({
 });
 
 function Home() {
-  const { collections, productCount } = Route.useLoaderData();
-  let imageCount = 0;
+  const { collectionsPromise, countPromise } = Route.useLoaderData();
 
   return (
     <div className="w-full p-4">
-      <div className="mb-2 w-full flex-grow border-b-[1px] border-accent1 text-sm font-semibold text-black">
-        Explore {productCount.at(0)?.count.toLocaleString()} products
-      </div>
-      {collections.map((collection) => (
+      <Await
+        promise={countPromise}
+        fallback={
+          <div className="mb-2 w-full flex-grow border-b-[1px] border-accent1 text-sm font-semibold text-black">
+            {" "}
+          </div>
+        }
+      >
+        {(productCount) => (
+          <div className="mb-2 w-full flex-grow border-b-[1px] border-accent1 text-sm font-semibold text-black">
+            Explore {productCount.at(0)?.count.toLocaleString()} products
+          </div>
+        )}
+      </Await>
+      <Await promise={collectionsPromise} fallback={null}>
+        {(collections) => <CollectionsGrid collections={collections} />}
+      </Await>
+    </div>
+  );
+}
+
+function CollectionsGrid(props: {
+  collections: Awaited<ReturnType<typeof getCollectionsFn>>;
+}) {
+  let imageCount = 0;
+
+  return (
+    <>
+      {props.collections.map((collection) => (
         <div key={collection.name}>
           <h2 className="text-xl font-semibold">{collection.name}</h2>
           <div className="flex flex-row flex-wrap justify-center gap-2 border-b-2 py-4 sm:justify-start">
@@ -58,6 +81,6 @@ function Home() {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }

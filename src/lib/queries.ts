@@ -33,6 +33,19 @@ export const getCollections = cached(
   { revalidate: TWO_HOURS, tags: ["collections"] },
 );
 
+// Sidebar-only variant: 19 rows of name+slug instead of the full nested
+// collections->categories tree. The full tree serializes to ~100KB of loader
+// data that would otherwise sit before the visible content on EVERY page.
+export const getCollectionsLight = cached(
+  () =>
+    db.query.collections.findMany({
+      columns: { id: true, name: true, slug: true },
+      orderBy: (collections, { asc }) => asc(collections.name),
+    }),
+  ["collections-light"],
+  { revalidate: TWO_HOURS, tags: ["collections"] },
+);
+
 export const getProductDetails = cached(
   (productSlug: string) =>
     db.query.products.findFirst({
