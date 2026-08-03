@@ -79,7 +79,22 @@ export function Link({ children, href, prefetch, ...props }: LinkProps) {
         if (imageCache.has(href)) return;
         imageCache.set(href, []);
         for (const match of matches ?? []) {
-          warmFromData(href, match.loaderData);
+          // preloadRoute can resolve while a match is still pending with no
+          // loaderData yet — poll the router's match cache until it lands.
+          const matchId = (match as { id?: string }).id;
+          const harvest = (attempt: number) => {
+            const live = matchId
+              ? (router.getMatch(matchId) ?? match)
+              : match;
+            if (live.loaderData !== undefined) {
+              warmFromData(href, live.loaderData);
+              return;
+            }
+            if (attempt < 40) {
+              setTimeout(() => harvest(attempt + 1), 50);
+            }
+          };
+          harvest(0);
         }
       })
       .catch(() => {});
