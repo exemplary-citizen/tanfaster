@@ -1,0 +1,222 @@
+{
+  "vercel": {
+    "home": {
+      "first": {
+        "status": 200,
+        "firstByte": 170,
+        "total": 428.1,
+        "cache": "HIT"
+      },
+      "warmMedianTtfb": 44.6,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "collection": {
+      "first": {
+        "status": 200,
+        "firstByte": 387.1,
+        "total": 586.9,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 26.7,
+      "warmCacheStates": [
+        "HIT",
+        "STALE",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "category": {
+      "first": {
+        "status": 200,
+        "firstByte": 424.1,
+        "total": 664.4,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 23.5,
+      "warmCacheStates": [
+        "HIT",
+        "STALE",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "subcategory": {
+      "first": {
+        "status": 200,
+        "firstByte": 203.4,
+        "total": 409.7,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 24,
+      "warmCacheStates": [
+        "HIT",
+        "STALE",
+        "STALE",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "product": {
+      "first": {
+        "status": 200,
+        "firstByte": 214,
+        "total": 434.5,
+        "cache": "STALE"
+      },
+      "warmMedianTtfb": 21.4,
+      "warmCacheStates": [
+        "HIT",
+        "STALE",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "search": {
+      "first": {
+        "status": 200,
+        "firstByte": 335.1,
+        "total": 343.9,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 15.7,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    }
+  },
+  "railway": {
+    "home": {
+      "first": {
+        "status": 200,
+        "firstByte": 87.4,
+        "total": 122.4,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 11.5,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "collection": {
+      "first": {
+        "status": 200,
+        "firstByte": 18.2,
+        "total": 23.8,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 7,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "category": {
+      "first": {
+        "status": 200,
+        "firstByte": 25.2,
+        "total": 38.7,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 6.6,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    },
+    "subcategory": {
+      "first": {
+        "status": 200,
+        "firstByte": 32.7,
+        "total": 32.8,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 7.9,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE"
+      ]
+    },
+    "product": {
+      "first": {
+        "status": 200,
+        "firstByte": 84.6,
+        "total": 85.8,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 4.8,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "STALE",
+        "HIT"
+      ]
+    },
+    "search": {
+      "first": {
+        "status": 200,
+        "firstByte": 22.9,
+        "total": 23,
+        "cache": "MISS"
+      },
+      "warmMedianTtfb": 6.8,
+      "warmCacheStates": [
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT",
+        "HIT"
+      ]
+    }
+  }
+}

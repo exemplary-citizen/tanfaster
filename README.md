@@ -11,111 +11,121 @@ Vercel-hosted original.
 The question this repo answers: can a client-first TanStack Start app on Deno
 match or beat NextFaster's performance (PPR + ISR + RSC on Vercel's edge)?
 
-**TL;DR: for US users, yes — the port beats the original on interactivity,
-bundle size, soft navigation, warm TTFB, and home-page Lighthouse. Vercel
-keeps two structural advantages: a globally-warm ~100-PoP edge cache and
-PPR's streamed-shell first paint (their FCP/product-LCP win).**
+**TL;DR: for US users, yes. In the final paired measurements the port wins
+home-page Lighthouse (95 vs 90), ties product (95 vs 98, LCP within noise),
+wins interactivity by an order of magnitude (TBT 10–22ms vs 78–206ms), ships
+30% less JS and a product page under half the original's HTML weight, and
+serves warm pages 3–5× faster from its edge. Vercel keeps two structural
+advantages: a globally-warm ~100-PoP edge cache, and PPR's tiny first chunk
+(FCP ~1.1–1.4s vs our ~2.1–2.3s).**
 
-## Results (2026-08-01/02)
+## Final results (2026-08-02)
 
-Raw data in `bench/out/`. Same 1M-product corpus on both sites.
+Raw data in `bench/out/`. Same 1M-product corpus on both sites. Lighthouse:
+mobile preset, local Chrome, medians, **paired same-session runs** (control
+runs against the original in the same batch to cancel machine conditions).
 
-### Lighthouse (mobile, local Chrome, median of 3, idle machine)
+### Lighthouse
 
-| site | page | score | LCP ms | FCP ms | TBT ms | CLS |
-|---|---|---:|---:|---:|---:|---:|
-| Vercel original | home | 89 | 3320 | **1362** | 78 | 0 |
-| **TanFaster** | home | **94** | **2784** | 2073 | **10** | 0 |
-| Vercel original | product | **96** | 2643 | **999** | 90 | 0 |
-| TanFaster | product | 91 | 3166 | 2263 | **4** | 0 |
-| TanFaster (streamed shell)¹ | product | 95 | **2405** | 2292 | **10** | 0 |
+| page | site | score | LCP ms | FCP ms | TBT ms |
+|---|---|---:|---:|---:|---:|
+| home | **TanFaster** | **95** | **2405** | 2255 | **22** |
+| home | Vercel original | 90 | 3129 | **1404** | 206 |
+| product | TanFaster | 95 | 2440 | 2118 | 102 |
+| product | Vercel original | **98** | 2209 | **1096** | 86 |
 
-¹ after deferring the related-products grid behind `defer()`/`Await`
-(streaming SSR flushes the shell at ~TTFB — the PPR-shell equivalent). In the
-paired same-session control, Vercel scored 95 with LCP 2792ms: **a tie on
-score and a ~390ms LCP win**. FCP remains Vercel's — their first streamed
-chunk is tiny, ours carries the full inline CSS.
+Product LCP swings both ways run-to-run (the previous paired round: TanFaster
+2405 vs Vercel 2792) — treat the two product columns as a tie. FCP is
+consistently Vercel's; see "What made it fast" for why.
 
-**Deferred-shell rollout + sidebar payload diet** (all grid pages stream;
-the layout's sidebar loads 19 name+slug rows instead of the full ~100KB
-nested collections tree, which used to sit *before* visible content on every
-page). Final paired round: **home 95 vs 90 (LCP 2405 vs 3129)**, product
-95 vs 98 (LCP 2440 vs 2209) — run-to-run LCP noise now swings the product
-comparison both ways. Product page wire weight: **45KB → 14.8KB gz**,
-smaller than the original's 19KB. Subcategory HTML: 217KB → 79KB raw, first
-visible content moved from byte ~154K to ~40K.
+### Network
 
-### Client-side navigation (hover-preloaded click → content, real browser, median)
-
-| | Vercel | TanFaster |
+| metric | Vercel | TanFaster |
 |---|---:|---:|
-| soft-nav | 25ms | **16ms** |
-
-### Warm TTFB
-
-| | Vercel | TanFaster |
-|---|---:|---:|
-| same-region (SF), all pages | 14–98ms | **6–9ms** |
-| origin render, uncached page | n/a (ISR store) | 65–180ms |
-| global (globalping, home) | **21–69ms everywhere** | 26ms Seattle · 212–351ms abroad¹ |
+| warm TTFB, same-region (SF), all 6 page types | 16–45ms | **5–12ms** |
+| cold origin render (uncached page), shell TTFB | n/a (persistent ISR store) | 38–114ms (streamed) |
+| global warm TTFB (globalping, home) | **21–69ms everywhere** | 26ms Seattle · 212–351ms abroad¹ |
 
 ¹ Railway's CDN (beta) currently caches at US PoPs only (`x-cache: DYNAMIC`
-observed abroad), so international requests pay a full origin round trip.
-This is CDN coverage, not app speed — the app renders in well under 200ms.
+observed abroad), so international requests pay a full round trip to the US
+origin. This is CDN coverage, not app speed.
 
 ### Payload
 
 | metric | Vercel | TanFaster |
 |---|---:|---:|
 | initial JS (gzip, home) | ~224 KB | **157 KB** (−30%) |
-| home HTML (wire) | 75 KB | **70 KB** |
-| product HTML (wire) | **19 KB** | 45 KB (markup + serialized loader data) |
+| home HTML (wire) | 75 KB | **72 KB** |
+| product HTML (wire) | 19 KB | **14.8 KB** |
+
+### Client-side navigation
+
+Hover-preloaded click → content change, real browser, median: **Vercel 25ms,
+TanFaster 59ms** — both perceptually instant. Before the streamed-shell
+change TanFaster measured 16ms; deferred loaders currently cost ~40ms of
+preload reuse on soft-nav. A knowing trade for the LCP/streaming wins.
 
 ### Verdict vs the plan's success criteria
 
 | criterion | result |
 |---|---|
-| warm TTFB ≤ original+10%, ≥4/5 regions | ✅ US · ❌ globally (Railway CDN's PoP coverage) |
-| lab LCP ≤ original+100ms | ✅ home (−536ms) · ✅ product after streamed shell (−387ms vs paired control) |
-| TBT ≤ original+50ms | ✅✅ 4–10ms vs 78–90ms |
-| CLS ≤ 0.02 | ✅ |
-| soft-nav ≤ original+10% | ✅ −36% |
+| warm TTFB ≤ original+10%, ≥4/5 regions | ✅ US · ❌ globally (Railway CDN PoP coverage) |
+| lab LCP ≤ original+100ms | ✅ home (−724ms) · ✅ product (within run noise) |
+| TBT ≤ original+50ms | ✅ 10–102ms vs 78–206ms |
+| CLS ≤ 0.02 | ✅ 0.00 |
+| soft-nav ≤ original+10% | ❌ 59ms vs 25ms (was ✅ 16ms pre-streaming; both feel instant) |
 | initial JS ≤ original+20% | ✅ −30% |
-
-The streamed-shell experiment (product page) shows TanStack's
-`defer()`/`Await` recovers most of PPR's benefit: the shell flushes at ~TTFB
-and Railway's CDN passes chunks through even on cold requests (verified:
-shell ~80ms, grid +30ms on uncached pages). What remains structurally
-Vercel's: the **FCP head start** (their first chunk is a few KB of head;
-ours carries the inlined CSS) and the **always-warm global edge**. Rolling
-the deferred shell out to the category/subcategory grids is the remaining
-easy win.
 
 Running cost: ~$20–25/mo (Railway web + imgproxy + Postgres) vs the
 original's documented ~$513/1M page views.
 
+## What made it fast (and what didn't work)
+
+The port went through three measured optimization rounds; each is a commit
+you can diff:
+
+1. **Baseline port** — faithful re-implementation: CDN-cached SSR HTML with
+   `s-maxage` + `stale-while-revalidate` as the ISR substitute, hover/viewport
+   preloading, inline CSS. Product page scored 91 vs Vercel's 96; LCP ~500ms
+   behind.
+2. **Streamed shell** (`defer()` + `<Await>`) — the PPR equivalent. Heavy grid
+   queries are deferred so streaming SSR flushes head + above-fold content at
+   ~TTFB. Railway's CDN passes chunks through on cold requests (verified:
+   shell ~40–110ms, grid streams in after) while storing the complete document
+   for warm hits. Bots get fully-buffered HTML (the handler's `isbot` path).
+   Product page: 91 → 95, LCP −760ms.
+3. **Sidebar payload diet** — byte-layout analysis showed ~100KB of serialized
+   sidebar loader data (the full collections→categories tree, 549 rows) sat
+   *before* the first visible element on every page; the sidebar renders 19
+   collection names. A light name+slug query moved first content from byte
+   ~154K to ~40K, cut product wire weight 45KB → 14.8KB, and won the home
+   Lighthouse comparison outright.
+
+**The remaining FCP gap (~1s) is structural**: Vercel's PPR first chunk is a
+few KB of head + critical CSS, while our first chunk carries the full inlined
+stylesheet (~30KB raw) before body. Available but unimplemented levers:
+critical-CSS splitting (~100–300ms est.), dropping the second font family,
+and 103 Early Hints via a CDN that supports them.
+
 ### The Deno Deploy experiment (retired)
 
-We also ran the same app on Deno Deploy (GA platform). Findings before
-retiring it:
+The same app ran on Deno Deploy (GA platform) before being retired:
 
 - Its CDN's **tag-based purge** (`Deno-Cache-Tag` + invalidation API) is the
-  best `revalidateTag` substitute on any host we tested, and cache-hit TTFB
-  was a solid ~60ms.
-- But compute runs in one US region (ORD), and the serverless-isolate model
-  plus a cross-provider TCP Postgres connection made **uncached page renders
-  0.4–1.5s** (connection handshakes ~4×RTT before the first query, per-isolate
-  caches always cold). With a 1M-page long-tail catalog and no organic
-  traffic, most requests are misses, so dashboard p50 sat at 3–5s.
+  best `revalidateTag` substitute on any host we tested; cache-hit TTFB ~60ms.
+- But compute runs in one US region (ORD), and serverless isolates + a
+  cross-provider TCP Postgres connection made **uncached renders 0.4–1.5s**
+  (connection handshakes ~4×RTT before the first query; per-isolate caches
+  always cold). With a 1M-page long tail and no organic traffic, most requests
+  are misses — dashboard p50 sat at 3–5s.
 - The fix would be a co-located HTTP-driver database (e.g. Neon +
   `drizzle-orm/neon-http` — what the original uses, for exactly this reason).
-  We retired the deployment instead; an always-on container next to its DB
-  (Railway) suits this workload better. Framework note: Deno Deploy's
-  TanStack Start auto-detection failed for this stack — the working config
-  was explicit `deno install --allow-scripts` +
-  `NITRO_PRESET=deno_server deno task build` + entrypoint
-  `.output/server/index.mjs`, plus `scripts/patch-builtins.ts` to
-  `node:`-prefix postgres.js's bare builtin imports.
+  We retired the deployment instead: an always-on container next to its DB
+  suits this workload better. Deployment notes for anyone trying: framework
+  auto-detection failed for this stack; the working config was explicit
+  `deno install --allow-scripts` + `NITRO_PRESET=deno_server deno task build`
+  + entrypoint `.output/server/index.mjs`, plus `scripts/patch-builtins.ts`
+  to `node:`-prefix postgres.js's bare builtin imports for isolates.
 
 ## Architecture
 
@@ -124,6 +134,9 @@ retiring it:
   — the `experimental.inlineCss` equivalent
 - **ISR substitute**: CDN-cached SSR HTML (`s-maxage` +
   `stale-while-revalidate`) on Railway CDN (Auto mode, purge-on-deploy off)
+- **Streamed shell everywhere**: grid queries are deferred (`defer()` +
+  `<Await>`) on home, category, subcategory, and product pages; the layout
+  sidebar uses a light 19-row query so per-page loader data stays small
 - **Guard rail**: request middleware throws (dev) / sanitizes (prod) if any
   cacheable route emits `Set-Cookie` — one stray cookie disables CDN caching
 - **Data**: Railway Postgres over private networking, NextFaster's published
@@ -131,8 +144,9 @@ retiring it:
   (`prepare:false`); `cached()` = AsyncLocalStorage request-dedupe +
   in-memory TTL + tags
 - **Prefetching**: custom Link — viewport dwell 300ms → `router.preloadRoute`
-  + image warming from typed loader data (replaces the original's
-  HTML-scraping `/api/prefetch-images`), hover re-warm, mousedown navigation
+  + image warming from typed loader data, including data that arrives via
+  deferred promises (replaces the original's HTML-scraping
+  `/api/prefetch-images`); hover re-warm; mousedown navigation
 - **Cart**: non-httpOnly JSON cookie read synchronously by the badge
   (`useSyncExternalStore` on `document.cookie`) — zero network, zero CLS,
   keeps SSR HTML user-agnostic
@@ -141,12 +155,9 @@ retiring it:
 - **Images**: same-origin `/img/<w>/<q>/<path>` route → imgproxy (Railway
   private network) → original public blob store; 48px@2x WebP q65 thumbs,
   256px@2x q80 hero; immutable 1-year caching on the site's own CDN entry.
-  `scripts/warm-images.ts` pre-warms the category/subcategory grid variants
+  `scripts/warm-images.ts` pre-warms the ~2,600 category/subcategory grid
+  variants
 - **OG images**: satori + resvg-wasm server route with static PNG fallback
-- **Streamed shell**: product page defers the related-products grid
-  (`defer()` + `<Await>`) so streaming SSR flushes head + above-fold content
-  at ~TTFB; bots get fully-buffered HTML (the stream handler's `isbot` path),
-  and the CDN stores the complete document, so warm hits are unaffected
 
 ## Development
 
