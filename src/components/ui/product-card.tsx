@@ -29,7 +29,7 @@ export function ProductLink(props: {
   category_slug: string;
   subcategory_slug: string;
   loading: "eager" | "lazy";
-  product: Product;
+  product: Pick<Product, "slug" | "name" | "description">;
 }) {
   const { category_slug, subcategory_slug, product, imageUrl: imgSrc } = props;
 
