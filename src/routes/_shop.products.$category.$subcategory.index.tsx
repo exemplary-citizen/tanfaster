@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { Await, createFileRoute, defer, notFound } from "@tanstack/react-router";
 import { ProductLink } from "~/components/ui/product-card";
 import { CACHE_HEADERS } from "~/lib/cache";
 import {
@@ -7,21 +7,40 @@ import {
   getSubcategoryProductCountFn,
 } from "~/lib/functions/data";
 
-// Port of NextFaster's products/[category]/[subcategory]/page.tsx.
+// Port of NextFaster's products/[category]/[subcategory]/page.tsx. The
+// subcategory row and indexed count are awaited (head needs them); the
+// product grid — the heavy query and payload — is deferred so the shell
+// streams at ~TTFB.
+
+type GridProduct = {
+  slug: string;
+  name: string;
+  description: string;
+  image_url: string | null;
+};
 
 export const Route = createFileRoute(
   "/_shop/products/$category/$subcategory/",
 )({
   loader: async ({ params }) => {
-    const [products, subcategory, countRes] = await Promise.all([
-      getProductsForSubcategoryFn({ data: params.subcategory }),
+    const productsPromise: Promise<Array<GridProduct>> = defer(
+      getProductsForSubcategoryFn({ data: params.subcategory }).then((list) =>
+        list.map(({ slug, name, description, image_url }) => ({
+          slug,
+          name,
+          description,
+          image_url,
+        })),
+      ),
+    );
+    const [subcategory, countRes] = await Promise.all([
       getSubcategoryFn({ data: params.subcategory }),
       getSubcategoryProductCountFn({ data: params.subcategory }),
     ]);
     if (!subcategory) {
       throw notFound();
     }
-    return { products, subcategory, countRes };
+    return { productsPromise, subcategory, countRes };
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [] };
@@ -52,7 +71,7 @@ export const Route = createFileRoute(
 });
 
 function SubcategoryPage() {
-  const { products, countRes } = Route.useLoaderData();
+  const { productsPromise, countRes } = Route.useLoaderData();
   const { category, subcategory } = Route.useParams();
 
   const finalCount = countRes[0]?.count ?? 0;
@@ -66,16 +85,19 @@ function SubcategoryPage() {
         <p>No products for this subcategory</p>
       )}
       <div className="flex flex-row flex-wrap gap-2">
-        {products.map((product) => (
-          <ProductLink
-            key={product.name}
-            loading="eager"
-            category_slug={category}
-            subcategory_slug={subcategory}
-            product={product}
-            imageUrl={product.image_url}
-          />
-        ))}
+        <Await promise={productsPromise} fallback={null}>
+          {(products) =>
+            products.map((product) => (
+              <ProductLink
+                key={product.name}
+                loading="eager"
+                category_slug={category}
+                subcategory_slug={subcategory}
+                product={product}
+                imageUrl={product.image_url}
+              />
+            ))}
+        </Await>
       </div>
     </div>
   );

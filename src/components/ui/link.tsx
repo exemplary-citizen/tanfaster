@@ -21,21 +21,31 @@ const AnyRouterLink = RouterLink as unknown as (
 const warmed = new Set<string>();
 const imageCache = new Map<string, Array<string>>();
 
+// Walks loader data for image_url fields. Deferred loader values arrive as
+// Promises (defer()/Await routes) — subscribe and warm when they resolve,
+// which is normally long before the user clicks.
 function collectImageUrls(
   value: unknown,
   out: Array<string>,
+  onDeferred: (data: unknown) => void,
   depth = 0,
 ): void {
   if (!value || depth > 5 || out.length >= 12) return;
+  if (value instanceof Promise) {
+    value.then(onDeferred, () => {});
+    return;
+  }
   if (Array.isArray(value)) {
-    for (const v of value) collectImageUrls(v, out, depth + 1);
+    for (const v of value) collectImageUrls(v, out, onDeferred, depth + 1);
     return;
   }
   if (typeof value === "object") {
     const rec = value as Record<string, unknown>;
     if (typeof rec.image_url === "string") out.push(rec.image_url);
     for (const k in rec) {
-      if (k !== "image_url") collectImageUrls(rec[k], out, depth + 1);
+      if (k !== "image_url") {
+        collectImageUrls(rec[k], out, onDeferred, depth + 1);
+      }
     }
   }
 }
@@ -49,6 +59,15 @@ function warmImage(url: string) {
   img.src = url;
 }
 
+function warmFromData(href: string, data: unknown) {
+  const urls: Array<string> = [];
+  collectImageUrls(data, urls, (resolved) => warmFromData(href, resolved));
+  if (urls.length === 0) return;
+  const variants = urls.flatMap(imageWarmVariants);
+  imageCache.set(href, [...(imageCache.get(href) ?? []), ...variants]);
+  for (const url of variants) warmImage(url);
+}
+
 export function Link({ children, href, prefetch, ...props }: LinkProps) {
   const linkRef = useRef<HTMLAnchorElement>(null);
   const router = useRouter();
@@ -58,13 +77,10 @@ export function Link({ children, href, prefetch, ...props }: LinkProps) {
       .preloadRoute({ to: href } as never)
       .then((matches) => {
         if (imageCache.has(href)) return;
-        const urls: Array<string> = [];
+        imageCache.set(href, []);
         for (const match of matches ?? []) {
-          collectImageUrls(match.loaderData, urls);
+          warmFromData(href, match.loaderData);
         }
-        const variants = urls.flatMap(imageWarmVariants);
-        imageCache.set(href, variants);
-        for (const url of variants) warmImage(url);
       })
       .catch(() => {});
   };

@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { Await, createFileRoute, defer, notFound } from "@tanstack/react-router";
 import { Image } from "~/components/ui/image";
 import { Link } from "~/components/ui/link";
 import { CACHE_HEADERS } from "~/lib/cache";
@@ -9,17 +9,20 @@ import {
 
 // Port of NextFaster's products/[category]/page.tsx plus its layout.tsx
 // (the layout only contributed generateMetadata, folded into head() here).
+// The category (grid content + head meta) is awaited; the product COUNT — a
+// three-table join over up to ~thousands of products — is deferred so it
+// never holds back the shell.
 
 export const Route = createFileRoute("/_shop/products/$category/")({
   loader: async ({ params }) => {
-    const [category, countRes] = await Promise.all([
-      getCategoryFn({ data: params.category }),
+    const countPromise = defer(
       getCategoryProductCountFn({ data: params.category }),
-    ]);
+    );
+    const category = await getCategoryFn({ data: params.category });
     if (!category) {
       throw notFound();
     }
-    return { category, countRes };
+    return { category, countPromise };
   },
   head: ({ loaderData, params }) => {
     const category = loaderData?.category;
@@ -49,18 +52,26 @@ export const Route = createFileRoute("/_shop/products/$category/")({
 });
 
 function CategoryPage() {
-  const { category: cat, countRes } = Route.useLoaderData();
+  const { category: cat, countPromise } = Route.useLoaderData();
   const { category } = Route.useParams();
-
-  const finalCount = countRes[0]?.count;
 
   return (
     <div className="container p-4">
-      {finalCount ? (
-        <h1 className="mb-2 border-b-2 text-sm font-bold">
-          {finalCount} {finalCount === 1 ? "Product" : "Products"}
-        </h1>
-      ) : null}
+      <Await
+        promise={countPromise}
+        fallback={
+          <h1 className="mb-2 border-b-2 text-sm font-bold">{" "}</h1>
+        }
+      >
+        {(countRes) => {
+          const finalCount = countRes[0]?.count;
+          return finalCount ? (
+            <h1 className="mb-2 border-b-2 text-sm font-bold">
+              {finalCount} {finalCount === 1 ? "Product" : "Products"}
+            </h1>
+          ) : null;
+        }}
+      </Await>
       <div className="space-y-4">
         {cat.subcollections.map((subcollection, index) => (
           <div key={index}>
