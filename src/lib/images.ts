@@ -21,8 +21,14 @@ export function imageUrl(
   return `/img/${width}/${quality}/${path}`;
 }
 
-// The variants product cards actually render, so link-hover warming hits the
-// same URLs the navigation will request.
+// The variants the TARGET page actually renders, so link-hover warming hits
+// the same URLs the navigation will request: 48px q65 grid thumbs (grids
+// render every loader-data product at that size) and the 256px q80 hero
+// (what a product page shows). Warming the wrong size is worse than not
+// warming — the browser caches a variant nothing renders.
 export function imageWarmVariants(src: string): Array<string> {
-  return [imageUrl(src, { width: 256, quality: 80 })];
+  return [
+    imageUrl(src, { width: 48, quality: 65 }),
+    imageUrl(src, { width: 256, quality: 80 }),
+  ];
 }
